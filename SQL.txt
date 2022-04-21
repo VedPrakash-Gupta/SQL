@@ -1,4 +1,11 @@
-#String function: 
+DQL (Data Definition Language)  : SELECT
+DDL (Data Query Language)       : CREATE, DROP, ALTER, TRUNCATE, CUMMENT, RENAME
+DML (Data Manipulation Language): INSERT, UPDATE, DELETE, LOCK
+==================================================================================================================
+Joins:
+
+========================================================================================================================
+String function: 
 
 select concat(FirstName, '', SecondName) from family_details;
 
@@ -10,3 +17,58 @@ select lower(FirstName) as lower, FirstName from family_details;
 
 select character_length(FirstName) as Length, FirstName from family_details;
 ==============================================================================================================================================================
+
+REGEXP:
+
+select FirstName as Use_REGEXP, FirstName from family_details where FirstName regexp "[hd]";
+
+=================================================================================================================
+View:
+
+
+
+================================================================================================================
+
+Index:
+
+
+
+=================================================================================================================
+Triggers:
+
+
+
+================================================================================================================
+1} STORED PROCEDURES using In:
+
+Create command:
+
+delimiter &&
+create procedure PROCEDURE_NAME()
+begin
+select * from family_details where Relashion = "Father";
+end &&
+delimiter &&
+
+
+Run:
+call PROCEDURE_NAME()
+
+
+2} STORED PROCEDURES using In with Variable:
+
+Create command:
+
+delimiter //
+create procedure PROCEDURE_Function(in var int)
+begin
+select * from family_details order by ID desc limit var;
+end //
+delimiter ;
+
+
+Run:
+call PROCEDURE_Function(4)
+
+
+3} STORED PROCEDURES using In with Two Variable:
