@@ -1,0 +1,12 @@
+#String function: 
+
+select concat(FirstName, '', SecondName) from family_details;
+
+select substr(FirstName, 2, 2) from family_details;
+
+select upper(FirstName) as Upper, FirstName from family_details;
+
+select lower(FirstName) as lower, FirstName from family_details;
+
+select character_length(FirstName) as Length, FirstName from family_details;
+==============================================================================================================================================================
