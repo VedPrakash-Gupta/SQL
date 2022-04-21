@@ -17,14 +17,27 @@ select lower(FirstName) as lower, FirstName from family_details;
 
 select character_length(FirstName) as Length, FirstName from family_details;
 ==============================================================================================================================================================
+Window Function:
 
+
+
+
+
+============================================================================================================================================================
 REGEXP:
 
 select FirstName as Use_REGEXP, FirstName from family_details where FirstName regexp "[hd]";
 
 =================================================================================================================
-View:
+Views: Views are virtual tables that do not store any data of their own but disply data stored in other table.
 
+Create command:
+
+create view table_name_view as
+select * from customer where country = 'USA' 
+
+Run:
+select * from table_name_view
 
 
 ================================================================================================================
@@ -33,8 +46,13 @@ Index:
 
 
 
-=================================================================================================================
-Triggers:
+=============================================================================================================================================================
+Triggers: Is a stored procedure in database which automatically invokes whenever a special event in the database occure.
+Example : It invokes when certain table columns are being updated.
+
+DDL Trigger
+DML Trigger
+Logon Trigger:
 
 
 
@@ -72,3 +90,32 @@ call PROCEDURE_Function(4)
 
 
 3} STORED PROCEDURES using In with Two Variable:
+
+Create command:
+
+delimiter //
+create procedure PROCEDURE_Two_Variable(in var varchar(25), in var2 varchar(25))
+begin
+update friends_details set FirstName = 'Chandrshekhar' where SecondName = 'Gupta';
+end //
+delimiter ;
+
+
+Run: 
+call PROCEDURE_TWO_Variable('Ramu','Gupta')
+
+
+
+4} STORED PROCEDURES using Out with Variable:
+
+Create command:
+
+delimiter //
+create procedure pro_using_out(out var int)
+begin
+select count(*) from friends_details into var;
+end //
+delimiter ;
+ 
+Run:
+call pro_using_out(@total_count)
